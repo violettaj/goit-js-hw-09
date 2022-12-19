@@ -3,11 +3,11 @@ function getRandomHexColor() {
   }
   const startBtn = document.querySelector("button[data-start]")
 const stopBtn = document.querySelector("button[data-stop]")
-
+stopBtn.disabled = true
 let interval = null;
 
 const stopInterval = () => {
-    if (interval) clearInterval(interval);
+ if (interval) clearInterval(interval);
     stopBtn.setAttribute("disabled", "");
     startBtn.removeAttribute("disabled", "");
 }
