@@ -9,7 +9,7 @@ const button = document.querySelector('button');
 
 function submitEventHandler(event) {
   event.preventDefault();
-  button.disabled = true
+  button.setAttribute("disabled", "");
 
   const delay = Number.parseInt(firstDelay.value);
   const step = Number.parseInt(stepDelay.value);
@@ -21,8 +21,13 @@ function submitEventHandler(event) {
       })
       .catch(({ position, delay }) => {
         console.log(`❌ Rejected promise ${position} in ${delay}ms`);
-      });
-      
+      })
+      .finally(() => {
+        if (i === Number(amount.value)-1) {
+        button.removeAttribute("disabled");
+      }
+      }
+        ) 
   }
 }
 
