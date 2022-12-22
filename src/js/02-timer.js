@@ -36,6 +36,7 @@ const dataSeconds = document.querySelector("[data-seconds]");
 const dataDays = document.querySelector("[data-days]");
 const dataHours = document.querySelector("[data-hours]");
 const values = document.querySelectorAll(".value");
+let timerId = null;
 
 datePicker.addEventListener("change", () => {
     if (Date.now() > Date.parse(datePicker.value)) {
@@ -51,7 +52,7 @@ datePicker.addEventListener("change", () => {
       window.alert("Please choose a date in the future")
     } else if (Date.now() < Date.parse(datePicker.value)) {
       startBtn.removeAttribute("disabled", "");
-     let timerId = setInterval(remainingTime, 1000);}
+      timerId = setInterval(remainingTime, 1000);}
     });
 
     let remainingTime = () => {
