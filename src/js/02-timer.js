@@ -51,7 +51,7 @@ datePicker.addEventListener("change", () => {
       window.alert("Please choose a date in the future")
     } else if (Date.now() < Date.parse(datePicker.value)) {
       startBtn.removeAttribute("disabled", "");
-      timerId = setInterval(remainingTime, 1000);}
+     let timerId = setInterval(remainingTime, 1000);}
     });
 
     let remainingTime = () => {
